@@ -1,11 +1,11 @@
-function render_functional_component(container) {
+function render_simple_elevator_component(container) {
 	// get main container from dom
 	var s_e_container = document.getElementById(container);
 
 	// build sub-components
 	// header
 	var s_e_header = document.createElement("h2");
-	s_e_header.innerHTML = "Functional Elevator";
+	s_e_header.innerHTML = "Simple Elevator";
 
 	// instructions div
 	var s_e_instructions = document.createElement("p");
@@ -32,28 +32,32 @@ function render_functional_component(container) {
 	s_e_button.innerHTML = "Elevate!";
 
 	// display container div
-	var s_e_display_explained = document.createElement("p");
-	s_e_display_explained.innerHTML = "delta floor: ";
 	var s_e_display = document.createElement("p");
-	s_e_display.setAttribute("id", "delta-floor");
-	var s_e_display_container = document.createElement("div");
-	s_e_display_container.appendChild(s_e_display_explained);
-	s_e_display_container.appendChild(s_e_display);
+	s_e_display.setAttribute("id", "s_e_display");
+	s_e_display.innerHTML = "delta floor: ";
+
+	// // display container div - another way of doing it
+	// var s_e_display_explained = document.createElement("p");
+	// s_e_display_explained.innerHTML = "delta floor: ";
+	// var s_e_display = document.createElement("p");
+	// s_e_display.setAttribute("id", "delta-floor");
+	// var s_e_display_container = document.createElement("div");
+	// s_e_display_container.appendChild(s_e_display_explained);
+	// s_e_display_container.appendChild(s_e_display);
 
 	// link to solution file
 	var s_e_link = document.createElement("a");
-	s_e_link.setAttribute("href", :)
+	s_e_link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/simple-elevator")
+	s_e_link.innerHTML = "click to read the code"
 
 	// build it all together
 	s_e_container.appendChild(s_e_header);
 	s_e_container.appendChild(s_e_instructions_container);
 	s_e_container.appendChild(s_e_input_container);
 	s_e_container.appendChild(s_e_button);
-	s_e_container.appendChild(s_e_display_container);
-
-	// attach event listeners
-	s_e_button.addEventListener("click", s_e_handler_functional);
+	s_e_container.appendChild(s_e_display);
+	s_e_container.appendChild(s_e_link);
 }
 
-render_functional_component("simple-elevator");
+render_simple_elevator_component("simple-elevator");
 

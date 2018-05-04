@@ -1,55 +1,45 @@
-function mutual_information(source_node, target_node) {
-	var mi; // number
+function render_string_reverser_component(container) {
+	// get main container from dom
+	var string_reverser_container = document.getElementById(container);
 
-	var target_analysis = node_contributions(target_node);
-	
-	if (target_analysis[1][source_node] == undefined) {
-		mi = 0;
-	} else {
-		mi = target_analysis[1][source_node];
-	};
+	// build sub-components
+	// header
+	var string_reverser_header = document.createElement("h2");
+	string_reverser_header.innerHTML = "String Reverser";
 
-	return mi;
+	// instructions div
+	var string_reverser_instructions = document.createElement("p");
+	string_reverser_instructions.innerHTML = "Reverse!  Enter a string, my code will reverse it.";
+
+	// input div
+	var string_reverser_input = document.createElement("input");
+	string_reverser_input.setAttribute("id", "string-to-reverse");
+
+	// button
+	var string_reverser_button = document.createElement("button");
+	string_reverser_button.setAttribute("id", "reverse");
+	string_reverser_button.setAttribute("class", "customButtons");
+	string_reverser_button.innerHTML = "Reverse!";
+
+	// display container div
+	var string_reverser_display = document.createElement("p");
+	string_reverser_display.setAttribute("id", "string_reverser_display");
+	string_reverser_display.innerHTML = "Your string reversed: ";
+
+	// link to solution file
+	var string_reverser_link = document.createElement("a");
+	string_reverser_link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/string-reverser")
+	string_reverser_link.innerHTML = "click to read the code"
+
+	// build it all together
+	string_reverser_container.appendChild(string_reverser_header);
+	string_reverser_container.appendChild(string_reverser_instructions);
+	string_reverser_container.appendChild(string_reverser_input);
+	string_reverser_container.appendChild(document.createElement("br"));
+	string_reverser_container.appendChild(string_reverser_button);
+	string_reverser_container.appendChild(string_reverser_display);
+	string_reverser_container.appendChild(string_reverser_link);
 }
 
-var mutual_information_handler = function() {
-	var mi_source = document.getElementById("m-i-source").value
-	var mi_target = document.getElementById("m-i-target").value
-	
-	var mi = mutual_information(mi_source, mi_target);
+render_string_reverser_component("string-reverser");
 
-	var mi_display = document.getElementById("m-i-display");
-	mi_display.innerHTML = mi;
-}
-
-var render_m_i_component = function(container) {
-	var m_i_container = document.getElementById(container);
-
-	var m_i_instructions = document.createElement("p");
-	m_i_instructions.innerHTML = "Calculate mutual information from:";
-	
-	var m_i_input_1 = document.createElement("input");
-	m_i_input_1.setAttribute("id", "m-i-source");
-
-	var m_i_input_2 = document.createElement("input");
-	m_i_input_2.setAttribute("id", "m-i-target");
-
-	var m_i_button = document.createElement("button");
-	m_i_button.setAttribute("id", "calculate-m-i");
-	m_i_button.setAttribute("class", "customButtons");
-	m_i_button.innerHTML = "calculate mi";
-
-	var m_i_display = document.createElement("p");
-	m_i_display.setAttribute("id", "m-i-display");
-
-	m_i_container.appendChild(m_i_instructions);
-	m_i_container.appendChild(m_i_input_1);
-	m_i_container.appendChild(m_i_input_2);
-	m_i_container.appendChild(m_i_button);
-	m_i_container.appendChild(m_i_display);
-
-	var mi_button = document.getElementById("calculate-m-i");
-	mi_button.addEventListener("click", mutual_information_handler);
-}
-
-render_m_i_component("m-i-div");
