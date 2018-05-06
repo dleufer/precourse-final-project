@@ -61,7 +61,7 @@ function solution(s){
 }
 ```
 
-[PythonTutor link](https://goo.gl/Nt8EhE)
+[PythonTutor link](https://goo.gl/9VZu7b)
 
 
 
