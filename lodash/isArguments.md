@@ -42,13 +42,6 @@ ___
 
 This function does not have very complex behavior, it's just a utility for use in more interesting code.  It's a fancy & specific type check.
 
-
-### Input Analysis
-
-The most important consideration for the input is whether or not it is an Arguments object.  After that you could either do a lot of conditional checks to rule out invalid types, but it's more straight forward to just check for the right type. 
-
-Besides that it might be worth considering whether or not it is valid JavaScirpt.
-
 ### Test Cases
 
 ```js
@@ -58,6 +51,15 @@ isArguments(function() { return arguments }())
 isArguments([1, 2, 3])
 // => false
 ```
+
+
+
+### Test Case Analysis
+
+The most important consideration for the input is whether or not it is an Arguments object.  After that you could either do a lot of conditional checks to rule out invalid types, but it's more straight forward to just check for the right type. (Besides that it might be worth considering whether or not it is valid JavaScirpt.)
+
+These test cases are few and basic, but they illustrate the main point of this function.  For explaining the behavior they are adequate.  But to be convinced that the function works as expected I would want to see some more fringe cases:  What if the argument has all the same properties as an Arguments object?  Is there a strange argument that will break the function and cause it to return the wrong answer?  What if I pass in too many arguments? or no arguments?
+
 
 
 [TOP](#index)
