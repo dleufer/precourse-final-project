@@ -47,7 +47,7 @@ function render_simple_elevator_component(container) {
 
 	// link to solution file
 	var s_e_link = document.createElement("a");
-	s_e_link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/simple-elevator")
+	s_e_link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/codewars/simple-elevator")
 	s_e_link.innerHTML = "click to read the code"
 
 	// build it all together

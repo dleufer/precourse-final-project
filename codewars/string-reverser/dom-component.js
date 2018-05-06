@@ -28,7 +28,7 @@ function render_string_reverser_component(container) {
 
 	// link to solution file
 	var string_reverser_link = document.createElement("a");
-	string_reverser_link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/string-reverser")
+	string_reverser_link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/codewars/string-reverser")
 	string_reverser_link.innerHTML = "click to read the code"
 
 	// build it all together

@@ -39,7 +39,7 @@ function render_string_repeat_component(container) {
 
 	// link to solution file
 	var link = document.createElement("a");
-	link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/string-repeat")
+	link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/codewars/string-repeat")
 	link.innerHTML = "click to read the code"
 
 	// build it all together

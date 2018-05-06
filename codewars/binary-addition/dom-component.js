@@ -33,7 +33,7 @@ function render_binary_addition_component(container) {
 
 	// link to solution file
 	var link = document.createElement("a");
-	link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/binary-addition")
+	link.setAttribute("href", "https://github.com/elewa-student/precourse-final-project/tree/master/codewars/binary-addition")
 	link.innerHTML = "click to read the code"
 
 	// build it all together
