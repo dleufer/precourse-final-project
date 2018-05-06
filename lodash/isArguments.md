@@ -7,6 +7,7 @@ isArgument: Function
   1. value: Any type, that's the point of this function
 * _Returns_: Boolean
   * Returns `true` if `value` is an `arguments` object, else `false`.
+* _Behavior_: Checks if `value` is likely an `arguments` object.
 
 ### Index:
 * [Dependencies](#dependencies)
