@@ -5,6 +5,7 @@ This challenge is simply to take an old string and concatenate it to itself n ti
 ### index
 * [Solution](#solution)
 * [Language Features](#language-features)
+* [MH159's Solution](#mh159)
 * [Notes](#notes)
 
 ___
@@ -29,6 +30,43 @@ ___
 ## Language Features
 
 String.prototype.repeat(n) -> It returns a new string which is the old one repeated n times.
+
+[TOP](#string-repeat)
+
+___
+
+
+## [MH159](https://www.codewars.com/users/MH159)
+
+```js
+function repeatStr (n, s) {
+  String.prototype.repeat = function(n) {
+     return (new Array(n + 1)).join(this);
+  };
+  return s.repeat(n);
+}
+```
+
+[PythonTutor link](https://goo.gl/pCvGYi)
+
+
+### Strategy Analysis
+
+Their strategy was to re-implement the native "repeat()" method and to overwrite the native one, then to call this method with the String argument
+
+Their re-implementation's strategy was to create an empty array with length one greater than n (but with nothing in it), then to join the array using your string as a padding between array "elements".  
+
+### Language Features
+
+* "Array.prototype" - tapping into native prototypical inheritance to give their string access to their method.
+* "new Array(x)" - initializes a new array with length x, but nothing in it
+* ".join(String)" - concatenates the elements in an array with your argument as padding.
+
+### Comparison
+
+Their solution is far more sophisticated than mine. Not only did they have a more cleaver solution than mine, but they reached deep into JavaScript wisdom to use it in a more clever way than I could (yet). 
+
+But there might be some dangerous side-effects from modifying the Array prototype.
 
 
 ___

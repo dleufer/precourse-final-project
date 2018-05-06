@@ -5,6 +5,7 @@ Take in a string, and reverse it.
 ### index
 * [Solution](#solution)
 * [Language Features](#language-features)
+* [Fabricelepro's Code](#fabricelepro)
 * [Notes](#notes)
 
 ___
@@ -44,7 +45,47 @@ I used native Array methods:
 And a native String method:
 * .split("") -> makes an array with each character as an element
 
+[TOP](#string-reverser)
 
+___
+
+
+## [Fabricelepro](https://www.codewars.com/users/fabricelepro)
+
+```js
+function solution(s){
+  var o = '';
+  for (var i = s.length - 1; i >= 0; i--)
+    o += s[i];
+  return o;
+}
+```
+
+[PythonTutor link](https://goo.gl/Nt8EhE)
+
+
+
+### Strategy Analysis
+
+Fabrice's solution was to start a new empty string then to build it up one letter at a time by iterating backwards through the argument string, copying over one letter at at time.
+
+Fabrice could have used more helpful variable names
+
+
+## Language Features
+
+Fabricelepro used a couple String features:
+* Concatenation
+* String.length
+* String indexing
+
+And a backwards for loop checked by the length of the string.
+
+### Comparison
+
+Fabrice's strategy is clear and readable. It's straight-forward and I wouldn't have any trouble explaining it or using it again later.  Iterating backwards through a for loop is a neat trick I'd never thought of before.
+
+[TOP](#string-reverser)
 
 ___
 

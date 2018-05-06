@@ -5,6 +5,7 @@ This function will move from it's starting location to it's finishing location, 
 ### index
 * [Solution](#solution)
 * [Language Features](#language-features)
+* [Petromoldovan's Code](#petromoldovan)
 * [Notes](#notes)
 
 ___
@@ -49,6 +50,8 @@ My Strategy:
 3. If they're both valid, I subtracted the floor from the button
 4. Else, I default return 0
 
+[TOP](#simple-elevator)
+
 ___
 
 ## Language Features
@@ -57,8 +60,48 @@ ___
 
 Otherwise this solution is pretty basic in language features, the solution is mostly logic.
 
+[TOP](#simple-elevator)
+
+___
+
+## [Petromoldovan](https://www.codewars.com/users/petromoldovan)
+
+```js
+function goto(level,button){
+  const possbileLevels = [0,1,2,3];
+  const possbileButtons = ["0","1","2","3"];
+
+  if (possbileLevels.indexOf(level) <0) return 0;
+  if (possbileButtons.indexOf(button) <0) return 0;
+
+  return parseInt(button) - level;
+}
+```
+
+[PythonTutor link](https://goo.gl/Nt8EhE)
 
 
+### Strategy Analysis
+
+Compare the arguments exhaustively to the possible valid arguments. 
+If they don't exist in the valid arrays, return 0. Otherwise return the subtraction.
+
+### Language Features
+
+* Single line if statement
+* indexOf: Array prototype method
+  * Args: 1 (2, but one we care about)
+    * Any type: the item to search for
+  * Return: Number
+    * The index of the first instance of your search query
+    * Or -1 if it doesn't exist
+  * Behavior: searches for the item. if it's there, it returns the index for the first instance. otherwise -1
+
+### Comparison
+
+Petromoldovan used the same strategy I did, but their implementation is even cleaner than mine. They very cleverly used built-in language features to make their code more succinct and readable.
+
+[TOP](#simple-elevator)
 
 ___
 
