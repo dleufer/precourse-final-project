@@ -1,10 +1,12 @@
 # [isObjectLike](https://github.com/lodash/lodash/blob/master/isObjectLike.js)
 
 Write the purpose here:
-* Why does this code exist? 
+* Why does this code exist?
 * What does it allow a user to do?
 * This will look something like: A user can ...
 * This shouldn't be very long
+
+This function allows a developer to check if something is 'object-like.' It doesn't check if something conforms to the strict definition of an object in JS.
 
 _function name_: Function
 * Args: (how many args does this function take?)
@@ -20,7 +22,7 @@ _object name_: Object
     * Initial Value: what's written in the source code
     * Purpose: What it does in the object
 * Methods: number of them
-  * _name of method_: 
+  * _name of method_:
     * Args: (how many args does this function take?)
       * (List each arg, it's type, and it's purpose)
     * Return: (what type does this function return?)
@@ -71,7 +73,7 @@ assert(-5 == add(-2, -3));
 
 ### Test Case Analysis
 
-Why are these interesting test cases? 
+Why are these interesting test cases?
 
 What behavior do they demonstrate?
 
@@ -84,7 +86,7 @@ What might be some other test cases you'd want to try?
 
 ___
 
-## Implementation 
+## Implementation
 
 Give an overview of what is tricky about implementing this behavior.
 * Anything unexpected challenges?
