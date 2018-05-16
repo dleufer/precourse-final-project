@@ -72,23 +72,31 @@ As for fringe cases, I wonder if there isn't something which you could include b
 ___
 
 ## Implementation
-
-Give an overview of what is tricky about implementing this behavior.
-* Anything unexpected challenges?
-* Did trying to code it change your understanding of the behavior?
+The implementation here seems pretty straightforward. They don't really require any fancy features, managing to do it using basic JS language features.
 
 ### Original Code
 
 ```js
-// the original code you studied
+function isObjectLike(value) {
+  return typeof value == 'object' && value !== null
+}
+
+export default isObjectLike
 ```
 
 _Strategy:_
 Explain the strategy they used.  Was it heavy in logic or languge features? What strategies did they use?  How is it like and unlike others?
-
+Their strategy is straightforward:
+* use the `typeof` operator to determine the type of the input `value`
+* check that `value` is not equal to `null`
+* combine these two checks into a boolean `&&` operator and return the answer
 
 _Language Features:_
-What language features did they use, and how much does their solution rely on them?
+They used a couple of basic language features:
+* the `typeof` operator, to check the type of the input
+* the boolean `&&` operator
+* the comparison operator, `==`, and its negative form `!==`
+
 
 ### Reconstruction
 
@@ -114,13 +122,13 @@ ___
 ## Notes
 
 Things I learned studying this problem:
-
+* A deeper understanding of what objects are in JS
 
 New vocabulary:
-
+* Object-like
 
 Things I struggled with:
-
+* The idea of something being 'object-like', as opposed to just being an object. I guess that what's cool about this function is that it expands on the strict definition of an object in JS, to allow you to know if something is object-like. I presume that my difficulty here comes from not knowing about cases in which it would be useful not just to know if something is an object, but to know if something is object-like. I would guess that there are cases in which something can be treated more or less as an object, even though it doesn't conform to the strict definition, and that this function allows you to identify such cases.
 
 Lessons to apply for next time:
 
