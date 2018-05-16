@@ -1,34 +1,13 @@
-# [isObjectLike](https://github.com/lodash/lodash/blob/master/isObjectLike.js)
+# isObjectLike: [GitHub](https://github.com/lodash/lodash/blob/master/isObjectLike.js), [Docs](https://lodash.com/docs/4.17.10#isObjectLike)
 
-Write the purpose here:
-* Why does this code exist?
-* What does it allow a user to do?
-* This will look something like: A user can ...
-* This shouldn't be very long
+This function allows a developer to check if something is 'object-like.' It doesn't check if something conforms to the strict definition of an object in JS, but specifically checks if it is not `null` and if its `typeof` is 'object.'
+This could be useful when using someone else's code to find out if something is an object and can thus be used in a particular way.
 
-This function allows a developer to check if something is 'object-like.' It doesn't check if something conforms to the strict definition of an object in JS.
-
-_function name_: Function
-* Args: (how many args does this function take?)
-  * (List each arg, it's type, and it's purpose)
-* Return: (what type does this function return?)
-  * (Describe the return value in nested detail)
-
-or if it's an object
-
-_object name_: Object
-* Properties: number of them
-  * _name of property_: type
-    * Initial Value: what's written in the source code
-    * Purpose: What it does in the object
-* Methods: number of them
-  * _name of method_:
-    * Args: (how many args does this function take?)
-      * (List each arg, it's type, and it's purpose)
-    * Return: (what type does this function return?)
-      * (Describe the return value in nested detail)
-    * Behavior: what does this method do?
-    * Purpose: why does this method exist in the object?
+isObjectLike: Function
+* Args: 1
+  * This function takes one argument, `value`, and it can be of any type, given that the point of the function is to check the type of the argument fed in.
+* Return: Boolean
+  * This function returns `true` if `value` is not `null` and has `typeof` as "object", else returns `false`.
 
 ### Index:
 * [Dependencies](#dependencies)
@@ -44,10 +23,7 @@ ___
 
 ## Dependencies
 
-List any dependencies this code has.
-
-What role do these dependencies play in this code's behavior?
-
+This code has no dependencies.
 
 [TOP](#index)
 
@@ -60,26 +36,35 @@ Describe the behavior of this code, behavior is very closely tied to test cases.
 Another nice way to think about this is by asking yourself:
 * "When this code has _finished_ running, what will have changed?"
 
+This code has quite simple behaviour. It checks two things: first, that the type of the argument `value` equals "object"; second, that `value` doesn't equal `null`.
 
 ### Test Cases
 
 ```js
-assert(5 == add(2, 3));
-assert(1 == add(-2, 3));
-assert(-1 == add(2, -3));
-assert(-5 == add(-2, -3));
+* isObjectLike({})
+* // => true
+*
+* isObjectLike([1, 2, 3])
+* // => true
+*
+* isObjectLike(Function)
+* // => false
+*
+* isObjectLike(null)
+* // => false
 ```
 
 
 ### Test Case Analysis
 
-Why are these interesting test cases?
+There are just 4 quite simple test cases, which I will analyse in reverse order.
+* The fourth test case checks that `value` does not equal `null`, which is one of the basic points of the function.
+* The third test case inputs something which is not an object, in this case a function, to check if the function does what it should.
+* The second test case inputs an array, which is object-like and should therefore return `true`.
+* The first test case inputs an object literal, or empty object. This is useful because it shows that the function checks the basic syntax, i.e. being surrounded by curly braces, to confirm whether something is an object, or object-like.
 
-What behavior do they demonstrate?
-
-Do they capture good fringe cases?
-
-What might be some other test cases you'd want to try?
+Although I think that these test cases probably do all that is really necessary to make the function work, I would perhaps include one which has a normal object, in addition to the empty object literal.
+As for fringe cases, I wonder if there isn't something which you could include between curly braces, but which would screw up the function. That would then seem to conform to test case 1, but what's written between the braces would make it not be object-like. However, I can't think of what that could be.
 
 
 [TOP](#index)
