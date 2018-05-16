@@ -30,12 +30,6 @@ This code has no dependencies.
 ___
 
 ## Behavior
-
-Describe the behavior of this code, behavior is very closely tied to test cases.  The behavior of code has to do with the external effects of this code: what it's arguments are, what it's return value is, and anything else in the program that it modifies.  If you find yourself describing what's written between the opening and closing curly braces of a function, you're probably doing this wrong.
-
-Another nice way to think about this is by asking yourself:
-* "When this code has _finished_ running, what will have changed?"
-
 This code has quite simple behaviour. It checks two things: first, that the type of the argument `value` equals "object"; second, that `value` doesn't equal `null`.
 
 ### Test Cases
@@ -58,7 +52,7 @@ This code has quite simple behaviour. It checks two things: first, that the type
 ### Test Case Analysis
 
 There are just 4 quite simple test cases, which I will analyse in reverse order.
-* The fourth test case checks that `value` does not equal `null`, which is one of the basic points of the function.
+* The fourth test case checks that `value` does not equal `null`, which is one of the basic points of the function. It does this because although `null` is considered a primitive data type in its own right, using the `typeof` operator on `null` will return `object`. This is a recognized 'error' for the `typeof` operator, and thus this test case makes sure that that error has been taken care of within the code.
 * The third test case inputs something which is not an object, in this case a function, to check if the function does what it should.
 * The second test case inputs an array, which is object-like and should therefore return `true`.
 * The first test case inputs an object literal, or empty object. This is useful because it shows that the function checks the basic syntax, i.e. being surrounded by curly braces, to confirm whether something is an object, or object-like.
@@ -87,8 +81,8 @@ export default isObjectLike
 _Strategy:_
 Explain the strategy they used.  Was it heavy in logic or languge features? What strategies did they use?  How is it like and unlike others?
 Their strategy is straightforward:
-* use the `typeof` operator to determine the type of the input `value`
-* check that `value` is not equal to `null`
+* use the `typeof` operator to determine that the type of the input `value` is 'object'.
+* check that `value` is not equal to `null`. This is done to work around the 'error' associated with the `typeof` operator that it returns 'object' if used on `null`, whereas `null` is in fact a separate primitive data type in JavaScript.
 * combine these two checks into a boolean `&&` operator and return the answer
 
 _Language Features:_
@@ -101,18 +95,28 @@ They used a couple of basic language features:
 ### Reconstruction
 
 ```js
-// your reconstruction here
-// same specs, same behavior, different implementation
+function isObjectLike(value) {
+  let returner = false
+    if (typeof(value) == 'object') {
+      if (value !== null) {
+        returner = true;
+      }
+    }
+    return returner
+}
 ```
 
 _Strategy:_
-Explain the strategy you used.  Was it heavy in logic or languge features? What strategies did they use?  How is it like and unlike others?
+I basically used the same strategy of checking two things:
+* Does `typeof` return 'object'
+* Is `value` not equal to `null`
+I just used a syntax which came more naturally to me, by using if statements.
 
 _Language Features:_
-What language features did you use, and how much does your solution rely on them?
+I just used nested if statements to determine whether the input had the desired properties.
 
 _Comparison:_
-How does your solution compare to theirs?  How would you make yours more like theirs? What suggestions would you have for them?
+I think that my solution is a bit clumsier than theirs. It is certainly longer, but the extra length doesn't really make it easier to read.
 
 
 [TOP](#index)
@@ -123,6 +127,7 @@ ___
 
 Things I learned studying this problem:
 * A deeper understanding of what objects are in JS
+* That there is an inherent error in `typeof` such that it returns 'object' if used on `null`
 
 New vocabulary:
 * Object-like
@@ -131,7 +136,7 @@ Things I struggled with:
 * The idea of something being 'object-like', as opposed to just being an object. I guess that what's cool about this function is that it expands on the strict definition of an object in JS, to allow you to know if something is object-like. I presume that my difficulty here comes from not knowing about cases in which it would be useful not just to know if something is an object, but to know if something is object-like. I would guess that there are cases in which something can be treated more or less as an object, even though it doesn't conform to the strict definition, and that this function allows you to identify such cases.
 
 Lessons to apply for next time:
-
+* Probably best to begin by making sure I understand all the elements being used in the function. I had no idea why it was necessary to check if `value` did not equal `null`, and so that part of the function was obscure to me until much later when I checked out some stuff on basic data types.
 
 [TOP](#index)
 
